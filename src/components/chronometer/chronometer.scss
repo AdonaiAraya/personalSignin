@@ -1,0 +1,67 @@
+ps-chronometer {
+    .chronometerContainer {
+        .chronometerContent {
+            figure {
+                margin: 0;
+                text-align: center;
+
+                span {
+                    font-size: 80px;
+                    color: color($colors, primary);
+                }
+            }
+        }
+
+        .progressContent {
+            .barContainer {
+                position: relative;
+                margin-top: 25px;
+
+                .barContent {
+                    height: 2px;
+                    width: 100%;
+                    background-color: #cccccc;
+
+                    .bar {
+                        height: 4px;
+                        width: 0;
+                        background-color: color($colors, primary);
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        -webkit-transform: translate(0, -50%);
+                        -moz-transform: translate(0, -50%);
+                        -ms-transform: translate(0, -50%);
+                        -o-transform: translate(0, -50%);
+                        transform: translate(0, -50%);
+                    }
+                }
+
+                .start, .end {
+                    position: absolute;
+                    top: 15px;
+                    color: #aaaaaa;
+
+                    &.active {
+                        border-bottom: 1px dotted #aaaaaa;
+                        cursor: pointer;
+                    }
+                }
+
+                .start {
+                    left: 0;
+                }
+
+                .end {
+                    right: 0;
+                }
+            }
+        }
+    }
+
+    .endTime {
+        text-align: center;
+        color: #aaaaaa;
+        margin-top: 75px;
+    }
+}

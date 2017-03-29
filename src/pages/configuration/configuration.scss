@@ -1,0 +1,44 @@
+page-configuration {
+    .configurationDaysContainer {
+        text-align: center;
+
+        figure {
+            margin: 0;
+
+            button {
+                display: inline-block;
+                text-align: center;
+                width: 50px;
+                height: 50px;
+                line-height: 50px;
+                padding: 0;
+
+                &.noActive {
+                    background-color: transparent;
+                    box-shadow: none;
+                    color: #1586b2;
+                }
+            }
+        }
+    }
+
+    .formContainer {
+        margin-top: 20px;
+
+        h2 {
+            color: color($colors, "primary");
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .hoursDiff {
+            text-align: center;
+            margin-top: 25px;
+            color: #8f8f8f;
+            font-size: 12px;
+        }
+    }
+}

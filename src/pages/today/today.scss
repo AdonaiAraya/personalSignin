@@ -1,0 +1,115 @@
+page-today {
+    .noConfigurations {
+        height: 100%;
+        background-color: lighten(color($colors, primary), 20%);
+
+        .noConfigurationContainer, .noConfigurationTodayContainer {
+            position: absolute;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            text-align: center;
+
+            figure {
+                margin: 0;
+
+                ion-icon {
+                    font-size: 10rem;
+                    color: color($colors, light);
+                }
+            }
+
+            .content {
+                h2 {
+                    font-size: 2rem;
+                    color: color($colors, light);
+                }
+
+                p {
+                    font-size: 1.2rem;
+                    color: color($colors, light);
+                }
+
+                .controls {
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+
+    .currentDay {
+        .dayInfo {
+            .dayName {
+                &:first-letter {
+                    text-transform: uppercase;
+                }
+            }
+
+            .col {
+                color: #aaaaaa;
+            }
+        }
+    }
+
+    .noRecordContainer {
+        .noRecordContent {
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            position: absolute;
+
+            button {
+                width: 150px;
+                height: 150px;
+                background-color: transparent;
+                border: 5px solid color($colors, primary);
+                border-radius: 50%;
+
+                &.activated {
+                    background-color: color($colors, primary);
+
+                    ion-icon {
+                        color: #ffffff;
+                    }
+                }
+
+                ion-icon {
+                    color: color($colors, primary);
+                    font-size: 50px;
+                    position: relative;
+                    left: 5px;
+                }
+            }
+        }
+    }
+
+    .recordContainer {
+        .recordContent {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: 100%;
+            padding: 0 31px;
+
+            .controls {
+                text-align: center;
+                margin-top: 75px;
+                height: 36px;
+            }
+        }
+    }
+}

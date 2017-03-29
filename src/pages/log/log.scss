@@ -1,0 +1,24 @@
+page-log {
+    ion-item-divider {
+        ion-label {
+            color: #ffffff;
+        }
+    }
+
+    ion-item {
+        .note {
+            &.positive-balance {
+                color: darkgreen;
+            }
+
+            &.negative-balance {
+                color: darkred;
+            }
+        }
+    }
+
+    .controls {
+        padding: 20px 0;
+        text-align: center;
+    }
+}

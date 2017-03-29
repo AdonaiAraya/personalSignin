@@ -1,0 +1,21 @@
+<div class="chronometerContainer">
+	<div class="chronometerContent">
+		<figure>
+			<span>{{ timeFormatted }}</span>
+		</figure>
+	</div>
+	<div class="progressContent">
+		<div class="barContainer">
+			<div class="barContent">
+				<div class="bar" [style.width]="progress + '%'"></div>
+			</div>
+			<div class="start" [class.active]="!dayLog.endTime" (click)="changeDate('start')">
+				<span>{{ start | date: 'HH:mm' }}</span>
+			</div>
+			<div class="end" [class.active]="dayLog.endTime" (click)="changeDate('end')">
+				<span>{{ end | date: 'HH:mm' }}</span>
+			</div>
+		</div>
+	</div>
+	<p class="endTime" *ngIf="userEnd">Hora de finalización: <strong>{{ userEnd | date: 'HH:mm' }}</strong></p>
+</div>

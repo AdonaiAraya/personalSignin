@@ -1,0 +1,65 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title text-center>Configuración</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-grid class="configurationDaysContainer">
+		<ion-row>
+			<ion-col width-20>
+				<figure>
+					<button ion-button round [class.noActive]="!isConfigurationDayActive(1)" (click)="select(1)">L</button>
+				</figure>
+			</ion-col>
+			<ion-col width-20>
+				<figure>
+					<button ion-button round [class.noActive]="!isConfigurationDayActive(2)" (click)="select(2)">M</button>
+				</figure>
+			</ion-col>
+			<ion-col width-20>
+				<figure>
+					<button ion-button round [class.noActive]="!isConfigurationDayActive(3)" (click)="select(3)">X</button>
+				</figure>
+			</ion-col>
+			<ion-col width-20>
+				<figure>
+					<button ion-button round [class.noActive]="!isConfigurationDayActive(4)" (click)="select(4)">J</button>
+				</figure>
+			</ion-col>
+			<ion-col width-20>
+				<figure>
+					<button ion-button round [class.noActive]="!isConfigurationDayActive(5)" (click)="select(5)">V</button>
+				</figure>
+			</ion-col>
+		</ion-row>
+	</ion-grid>
+	<div class="formContainer">
+		<p text-center [hidden]="selected">Selecciona un día para configurarlo</p>
+		<form name="configurationForm" [hidden]="!selected" (submit)="submit()">
+			<h2 text-center>{{ selectedConfiguration.dayName }}</h2>
+			<ion-item no-padding>
+				<ion-label>Activo</ion-label>
+				<ion-toggle name="active" [(ngModel)]="selectedConfiguration.active"></ion-toggle>
+			</ion-item>
+			<ion-item no-padding>
+				<ion-label>Comida en el trabajo</ion-label>
+				<ion-toggle name="lunchDay" [(ngModel)]="selectedConfiguration.lunchDay"></ion-toggle>
+			</ion-item>
+			<ion-item no-padding>
+				<ion-label>Hora de inicio</ion-label>
+				<ion-datetime name="startTime" doneText="Aceptar" cancelText="Cancelar" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" [displayFormat]="'HH:mm'" [(ngModel)]="selectedConfiguration.startTime"></ion-datetime>
+			</ion-item>
+			<ion-item no-padding>
+				<ion-label>Hora de finalización</ion-label>
+				<ion-datetime name="endTime" doneText="Aceptar" cancelText="Cancelar" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" [displayFormat]="'HH:mm'" [(ngModel)]="selectedConfiguration.endTime"></ion-datetime>
+			</ion-item>
+			<p class="hoursDiff">
+				{{ selectedConfiguration | diffHours : selectedConfiguration.startTime : selectedConfiguration.endTime }} horas
+			</p>
+			<div class="controls">
+				<button type="submit" ion-button clear color="primary">Guardar configuración</button>
+			</div>
+		</form>
+
+	</div>
+</ion-content>

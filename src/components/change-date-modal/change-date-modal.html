@@ -1,0 +1,17 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title>Editar hora</ion-title>
+		<ion-buttons end>
+			<button ion-button (click)="closeModal()">Volver</button>
+		</ion-buttons>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-item no-padding>
+		<ion-label>Hora</ion-label>
+		<ion-datetime name="time" doneText="Aceptar" cancelText="Cancelar" [displayFormat]="'HH:mm'" [(ngModel)]="time"></ion-datetime>
+	</ion-item>
+</ion-content>
+<ion-footer>
+	<button no-margin ion-button full (click)="save()">Guardar</button>
+</ion-footer>

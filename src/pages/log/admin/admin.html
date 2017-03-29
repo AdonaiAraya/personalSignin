@@ -1,0 +1,23 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title text-center>Administrar registros</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<ion-list [virtualScroll]="logs" [approxItemHeight]="'50px'" [headerFn]="checkHeaderSeparator">
+		<ion-item-divider *virtualHeader="let headerText" color="primary">
+			{{ headerText }}
+		</ion-item-divider>
+		<ion-item-sliding *virtualItem="let log">
+			<ion-item (press)="openOptions($event, log)" (click)="rippleEffect()">
+				<h2>{{ log.date | date: 'EEEE dd, MMMM' }}</h2>
+				<ion-note item-right>{{ log.startTime | date: 'HH:mm' }} - {{ (log.endTime || log.configurationEndTime) | date: 'HH:mm' }}</ion-note>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="danger" (click)="deleteLogDay(log);">
+					<ion-icon name="md-trash"></ion-icon>
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>

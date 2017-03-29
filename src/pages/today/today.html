@@ -1,0 +1,65 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title text-center>Hoy</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content class="noScroll">
+	<div class="pageWrapper">
+		<section *ngIf="pageLoaded && !currentConfiguration" class="noConfigurations">
+			<div *ngIf="configurations == null || configurations.length == 0" class="noConfigurationContainer">
+				<figure>
+					<ion-icon name="calendar"></ion-icon>
+				</figure>
+				<div class="content">
+					<h2>No tienes ninguna configuración establecida</h2>
+					<p>Ve a la sección de configuración para establecerla</p>
+					<div class="controls">
+						<button ion-button (click)="goToConfiguration()">Ir a configuración</button>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="configurations && configurations.length" class="noConfigurationTodayContainer">
+				<figure>
+					<ion-icon name="calendar"></ion-icon>
+				</figure>
+				<div class="content">
+					<h2>No tienes ninguna configuración establecida para hoy</h2>
+					<p>Ve a la sección de configuración para establecerla</p>
+					<div class="controls">
+						<button ion-button (click)="goToConfiguration()">Ir a configuración</button>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section padding *ngIf="pageLoaded && currentConfiguration" class="currentDay">
+			<div class="dayInfo">
+				<ion-grid>
+					<ion-row>
+						<ion-col width-50 class="dayName">
+							{{ currentDate | date: 'EEEE dd' }}
+						</ion-col>
+						<ion-col width-50 class="configurationTime" text-right>
+							{{ currentConfiguration.startTime | date: 'HH:mm' }} - {{ currentConfiguration.endTime | date: 'HH:mm' }}
+						</ion-col>
+					</ion-row>
+				</ion-grid>
+			</div>
+			<div *ngIf="!currentDayLog" class="noRecordContainer">
+				<div class="noRecordContent">
+					<button ion-button (click)="startDayLog()">
+						<ion-icon name="md-play"></ion-icon>
+					</button>
+				</div>
+			</div>
+			<div *ngIf="currentDayLog" class="recordContainer">
+				<div class="recordContent">
+					<ps-chronometer [dayLog]="currentDayLog" (changeTime)="changeTime($event)"></ps-chronometer>
+					<div class="controls">
+						<button *ngIf="!currentDayLog.endTime" ion-button clear color="primary" (click)="endDayLog()">Terminar turno</button>
+						<button *ngIf="currentDayLog.endTime" ion-button clear color="primary" (click)="resetEndDayLog()">Restablecer final de turno</button>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</ion-content>

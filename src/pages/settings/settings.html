@@ -1,0 +1,24 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title text-center>Opciones</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<ion-list>
+		<ion-item no-padding>
+			<ion-label>Notificar hora de salida</ion-label>
+			<ion-toggle (ngModelChange)="save($event)" name="notifyEndTimeShift" [(ngModel)]="settings.notifyEndTimeShift"></ion-toggle>
+		</ion-item>
+		<ion-item no-padding>
+			<ion-label>Texto notificación</ion-label>
+			<ion-input text-right (focusout)="save($event)" name="notifyEndTimeText" [(ngModel)]="settings.notifyEndTimeText"></ion-input>
+		</ion-item>
+		<ion-item no-padding>
+			<ion-label>Tiempo para la comida</ion-label>
+			<ion-datetime (ngModelChange)="save($event)" name="timeToLunch" doneText="Aceptar" cancelText="Cancelar" minuteValues="0,5,10,15,20,25,30,35,40,45,50,55" [displayFormat]="'HH:mm'" [(ngModel)]="settings.timeToLunch"></ion-datetime>
+		</ion-item>
+	</ion-list>
+</ion-content>
+<ion-footer showWhen="cordova">
+	<ion-label text-center>Version: <strong>{{ appVersionNumber }}</strong></ion-label>
+</ion-footer>

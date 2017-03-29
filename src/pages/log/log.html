@@ -1,0 +1,73 @@
+<ion-header>
+	<ion-navbar color="primary">
+		<ion-title text-center>Registro</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content>
+	<div class="controls">
+		<button ion-button clear color="primary" (click)="goToAdminLogs()">Administrar registros</button>
+	</div>
+	<ion-item-group>
+		<ion-item-divider color="primary">
+			<ion-label>Esta semana</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			Días totales trabajados
+			<ion-note item-right>
+				{{ log.weekly.days }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			Horas realizadas
+			<ion-note item-right>
+				{{ log.weekly.hours}}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			Cómputo
+			<ion-note item-right [class.positive-balance]="log.weekly.balancePositive" [class.negative-balance]="!log.weekly.balancePositive">
+				{{ log.weekly.balance}}
+			</ion-note>
+		</ion-item>
+	</ion-item-group>
+	<ion-item-group>
+		<ion-item-divider color="primary">
+			<ion-label>Histórico</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			Días totales trabajados
+			<ion-note item-right>
+				{{ log.historic.days }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			Horas realizadas
+			<ion-note item-right>
+				{{ log.historic.hours }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			Cómputo
+			<ion-note item-right [class.positive-balance]="log.historic.balancePositive" [class.negative-balance]="!log.historic.balancePositive">
+				{{ log.historic.balance}}
+			</ion-note>
+		</ion-item>
+	</ion-item-group>
+	<ion-item-group>
+		<ion-item-divider color="primary">
+			<ion-label>Configuración establecida</ion-label>
+		</ion-item-divider>
+		<ion-item>
+			Horas semanales
+			<ion-note item-right>
+				{{ log.global.hours }}
+			</ion-note>
+		</ion-item>
+		<ion-item>
+			Tiempo para la comida
+			<ion-note item-right>
+				{{ log.global.timeToLunch }}
+			</ion-note>
+		</ion-item>
+	</ion-item-group>
+</ion-content>
