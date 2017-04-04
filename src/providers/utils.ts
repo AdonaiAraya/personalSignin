@@ -14,7 +14,11 @@ export class Utils{
     }
 
     public static getDateFingerprint(date: Date): number{
-        return parseInt(date.getFullYear() + "" + date.getMonth() + "" + date.getDate());
+        let year = date.getFullYear();
+        let month = date.getMonth() < 10 ? "0" + date.getMonth() : date.getMonth();
+        let day = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+
+        return parseInt(year + "" + month + "" + day);
     }
 
     public static getDiffBetweenDates(endDate: Date, startDate: Date): number {
